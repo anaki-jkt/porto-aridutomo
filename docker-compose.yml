@@ -1,7 +1,7 @@
 services:
   nextjs-app:
     build: .
-    container_name: porto-nextjs
+    container_name: porto-aridutomo
     restart: always
     ports:
       - "3000:3000"
