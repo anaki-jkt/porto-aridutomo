@@ -26,7 +26,7 @@ export default function HeroSection() {
             </div>
 
             <h1 className="text-3xl sm:text-5xl lg:text-4xl xl:text-5xl font-bold leading-tight mb-6 text-slate-800">
-              {t.hero.greeting} <span className="gradient-text">Ari Dwi Utomos</span>
+              {t.hero.greeting} <span className="gradient-text">Ari Dwi Utomosn</span>
             </h1>
 
             <div className="h-12 mb-6 overflow-hidden">
