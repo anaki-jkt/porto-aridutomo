@@ -6,8 +6,6 @@ import { useLanguage } from "../context/LanguageContext";
 const stats = [
   { value: "5+", key: "experience" },
   { value: "10+", key: "projects" },
-  { value: "5+", key: "techStack" },
-  { value: "100%", key: "satisfaction" },
 ];
 
 export default function AboutSection() {
