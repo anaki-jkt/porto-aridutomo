@@ -15,7 +15,7 @@ export default function Footer() {
               <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 via-blue-600 to-yellow-400 flex items-center justify-center font-bold text-sm text-white">A</div>
               <span className="font-semibold text-slate-800">Ari Dwi Utomo</span>
             </div>
-            <p className="text-sm text-slate-500">© {currentYear} {t.footer.rights}</p>
+            <p className="text-sm text-slate-500">© {currentYear} </p>
           </div>
 
           <div className="flex flex-wrap justify-center gap-6 text-sm text-slate-500">

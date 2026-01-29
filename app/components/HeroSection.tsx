@@ -25,7 +25,7 @@ export default function HeroSection() {
               <span className="text-sm text-slate-600">{t.hero.available}</span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold leading-tight mb-6 text-slate-800">
+            <h1 className="text-3xl sm:text-5xl lg:text-4xl xl:text-5xl font-bold leading-tight mb-6 text-slate-800">
               {t.hero.greeting} <span className="gradient-text">Ari Dwi Utomo</span>
             </h1>
 
