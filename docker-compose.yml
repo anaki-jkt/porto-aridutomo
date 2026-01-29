@@ -1,6 +1,7 @@
 services:
   nextjs-app:
-    build: .
+    #build: .
+    image: aridutomo12/porto-aridutomo:latest
     container_name: porto-aridutomo
     restart: always
     expose:
