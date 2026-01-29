@@ -37,6 +37,6 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             cd ~/projects/porto-aridutomo
-            docker compose pull
-            docker compose up -d --force-recreate
-            docker image prune -f
+            docker compose down
+            docker rmi aridutomo12/porto-aridutomo:latest
+            docker compose up -d
