@@ -19,11 +19,11 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-wrap justify-center gap-6 text-sm text-slate-500">
-            <a href="#home" className="hover:text-blue-600 transition-colors cursor-pointer">{t.nav.home}</a>
-            <a href="#about" className="hover:text-blue-600 transition-colors cursor-pointer">{t.nav.about}</a>
-            <a href="#skills" className="hover:text-blue-600 transition-colors cursor-pointer">{t.nav.skills}</a>
-            <a href="#projects" className="hover:text-blue-600 transition-colors cursor-pointer">{t.nav.projects}</a>
-            <a href="#contact" className="hover:text-blue-600 transition-colors cursor-pointer">{t.nav.contact}</a>
+            <a href="/#home" className="hover:text-blue-600 transition-colors cursor-pointer">{t.nav.home}</a>
+            <a href="/#about" className="hover:text-blue-600 transition-colors cursor-pointer">{t.nav.about}</a>
+            <a href="/#skills" className="hover:text-blue-600 transition-colors cursor-pointer">{t.nav.skills}</a>
+            <a href="/#projects" className="hover:text-blue-600 transition-colors cursor-pointer">{t.nav.projects}</a>
+            <a href="/#contact" className="hover:text-blue-600 transition-colors cursor-pointer">{t.nav.contact}</a>
           </div>
 
           <div className="flex items-center gap-3">
