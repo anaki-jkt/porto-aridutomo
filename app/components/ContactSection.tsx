@@ -45,7 +45,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section id="contact" ref={sectionRef} className="relative py-20 lg:py-32 px-4 bg-gradient-to-b from-blue-50/50 to-white">
+    <section id="contact" ref={sectionRef} className="relative py-20 lg:py-32 px-4 bg-linear-to-b from-blue-50/50 to-white">
       <div className="max-w-7xl mx-auto">
         <div className={`text-center mb-16 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
           <span className="inline-block px-4 py-2 rounded-full bg-green-50 text-sm text-green-600 mb-4 font-medium">{t.contact.title}</span>
@@ -60,7 +60,7 @@ export default function ContactSection() {
               <div className="space-y-4">
                 {contactInfo.map((info, index) => (
                   <a key={index} href={info.href} target={info.href.startsWith("http") ? "_blank" : undefined} rel={info.href.startsWith("http") ? "noopener noreferrer" : undefined} className="flex items-center gap-4 p-4 rounded-2xl hover:bg-blue-50 transition-all group cursor-pointer">
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${info.color} flex items-center justify-center text-white group-hover:scale-110 transition-transform`}>{renderIcon(info.icon)}</div>
+                    <div className={`w-12 h-12 rounded-xl bg-linear-to-br ${info.color} flex items-center justify-center text-white group-hover:scale-110 transition-transform`}>{renderIcon(info.icon)}</div>
                     <div><p className="text-sm text-slate-500">{t.contact[info.key as keyof typeof t.contact]}</p><p className="font-medium group-hover:text-blue-600 transition-colors text-slate-800">{getContactValue(info.key, info.value)}</p></div>
                   </a>
                 ))}
@@ -77,7 +77,7 @@ export default function ContactSection() {
               </div>
               <div><label htmlFor="subject" className="block text-sm font-medium mb-2 text-slate-700">{t.contact.subject}</label><input type="text" id="subject" name="subject" value={formData.subject} onChange={handleChange} required className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:outline-none text-slate-800 placeholder-slate-400" placeholder={t.contact.subjectPlaceholder} /></div>
               <div><label htmlFor="message" className="block text-sm font-medium mb-2 text-slate-700">{t.contact.message}</label><textarea id="message" name="message" value={formData.message} onChange={handleChange} required rows={5} className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:outline-none text-slate-800 placeholder-slate-400 resize-none" placeholder={t.contact.messagePlaceholder} /></div>
-              <button type="submit" className="w-full py-4 rounded-xl bg-gradient-to-r from-blue-500 via-blue-600 to-cyan-500 text-white font-semibold hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 cursor-pointer">
+              <button type="submit" className="w-full py-4 rounded-xl bg-linear-to-r from-blue-500 via-blue-600 to-cyan-500 text-white font-semibold hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 cursor-pointer">
                 <span>{t.contact.send}</span>
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" /></svg>
               </button>

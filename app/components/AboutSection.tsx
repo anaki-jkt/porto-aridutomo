@@ -37,7 +37,7 @@ export default function AboutSection() {
             <div className="glass-card rounded-3xl p-8 lg:p-10">
               <div className="space-y-6">
                 <div className="flex items-center gap-4">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-yellow-400 flex items-center justify-center text-2xl font-bold text-white">A</div>
+                  <div className="w-16 h-16 rounded-2xl bg-linear-to-br from-blue-500 to-yellow-400 flex items-center justify-center text-2xl font-bold text-white">A</div>
                   <div>
                     <h3 className="text-xl font-semibold text-slate-800">Ari Dwi Utomo</h3>
                     <p className="text-blue-600">{t.about.positionValue}</p>
@@ -69,7 +69,7 @@ export default function AboutSection() {
 
                 <div className="h-px bg-slate-200" />
 
-                <a href="#contact" className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 text-white font-medium transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30 cursor-pointer">
+                <a href="#contact" className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-linear-to-r from-blue-500 to-blue-600 text-white font-medium transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30 cursor-pointer">
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>
                   <span>{t.about.downloadResume}</span>
                 </a>

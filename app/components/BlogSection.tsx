@@ -19,7 +19,7 @@ function BlogCard({ post }: { post: BlogPost }) {
   return (
     <article className="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl hover:border-blue-200 transition-all duration-300 hover:-translate-y-1">
       {/* Cover Image */}
-      <div className="relative h-48 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 overflow-hidden">
+      <div className="relative h-48 bg-linear-to-br from-blue-500 via-purple-500 to-pink-500 overflow-hidden">
         <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
         <div className="absolute inset-0 flex items-center justify-center">
           <span className="text-white/30 text-6xl font-bold">
@@ -102,7 +102,7 @@ export default function BlogSection() {
       <div className="container mx-auto px-4 md:px-6">
         {/* Header */}
         <div className="text-center mb-16">
-          <span className="inline-block px-4 py-2 bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 rounded-full text-sm font-medium mb-4">
+          <span className="inline-block px-4 py-2 bg-linear-to-r from-blue-100 to-purple-100 text-blue-700 rounded-full text-sm font-medium mb-4">
             📝 Blog & Articles
           </span>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
@@ -140,7 +140,7 @@ export default function BlogSection() {
         <div className="text-center">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-full font-medium shadow-lg shadow-blue-600/25 hover:shadow-xl hover:shadow-blue-600/30 hover:-translate-y-0.5 transition-all"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-linear-to-r from-blue-600 to-purple-600 text-white rounded-full font-medium shadow-lg shadow-blue-600/25 hover:shadow-xl hover:shadow-blue-600/30 hover:-translate-y-0.5 transition-all"
           >
             Lihat Semua Artikel
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

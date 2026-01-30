@@ -31,7 +31,7 @@ function BlogCard({ post, featured = false }: { post: BlogPost; featured?: boole
     return (
       <article className="group bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-2xl hover:border-blue-200 transition-all duration-500 hover:-translate-y-1 md:col-span-2 md:grid md:grid-cols-2">
         {/* Cover Image */}
-        <div className="relative h-64 md:h-full bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 overflow-hidden">
+        <div className="relative h-64 md:h-full bg-linear-to-br from-blue-500 via-purple-500 to-pink-500 overflow-hidden">
           <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
           <div className="absolute inset-0 flex items-center justify-center">
             <span className="text-white/20 text-9xl font-bold">
@@ -116,7 +116,7 @@ function BlogCard({ post, featured = false }: { post: BlogPost; featured?: boole
   return (
     <article className="group bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl hover:border-blue-200 transition-all duration-300 hover:-translate-y-1">
       {/* Cover Image */}
-      <div className="relative h-48 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 overflow-hidden">
+      <div className="relative h-48 bg-linear-to-br from-blue-500 via-purple-500 to-pink-500 overflow-hidden">
         <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
         <div className="absolute inset-0 flex items-center justify-center">
           <span className="text-white/30 text-6xl font-bold">
@@ -235,11 +235,11 @@ export default function BlogPage() {
 
         {/* Stats */}
         <div className="flex justify-center gap-8 mb-12 text-center">
-          <div className="px-6 py-3 bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl">
+          <div className="px-6 py-3 bg-linear-to-r from-blue-50 to-purple-50 rounded-2xl">
             <div className="text-2xl font-bold text-gray-900">{allPosts.length}</div>
             <div className="text-sm text-gray-600">Total Artikel</div>
           </div>
-          <div className="px-6 py-3 bg-gradient-to-r from-green-50 to-teal-50 rounded-2xl">
+          <div className="px-6 py-3 bg-linear-to-r from-green-50 to-teal-50 rounded-2xl">
             <div className="text-2xl font-bold text-gray-900">{categories.length}</div>
             <div className="text-sm text-gray-600">Kategori</div>
           </div>

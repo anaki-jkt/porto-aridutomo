@@ -168,7 +168,7 @@ export default async function BlogPostPage({
           {/* Meta */}
           <div className="flex flex-wrap items-center gap-6 text-gray-600 mb-6">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
+              <div className="w-10 h-10 bg-linear-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
                 <span className="text-white font-bold text-sm">
                   {post.author.name.charAt(0)}
                 </span>
@@ -212,7 +212,7 @@ export default async function BlogPostPage({
         </header>
 
         {/* Cover Image */}
-        <div className="relative h-64 md:h-96 bg-gradient-to-br from-blue-500 via-purple-500 to-pink-500 rounded-2xl overflow-hidden mb-10">
+        <div className="relative h-64 md:h-96 bg-linear-to-br from-blue-500 via-purple-500 to-pink-500 rounded-2xl overflow-hidden mb-10">
           <div className="absolute inset-0 flex items-center justify-center">
             <span className="text-white/20 text-9xl font-bold">
               {post.category.charAt(0)}
@@ -230,7 +230,7 @@ export default async function BlogPostPage({
           {/* Author & Share */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-12">
             <div className="flex items-center gap-4">
-              <div className="w-14 h-14 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
+              <div className="w-14 h-14 bg-linear-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
                 <span className="text-white font-bold text-xl">
                   {post.author.name.charAt(0)}
                 </span>
@@ -252,7 +252,7 @@ export default async function BlogPostPage({
                   <Link
                     key={relatedPost.id}
                     href={`/blog/${relatedPost.slug}`}
-                    className="group p-6 bg-gray-50 rounded-xl hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 transition-colors"
+                    className="group p-6 bg-gray-50 rounded-xl hover:bg-linear-to-r hover:from-blue-50 hover:to-purple-50 transition-colors"
                   >
                     <span className={`inline-block px-3 py-1 rounded-full text-xs font-medium mb-3 ${categoryColors[relatedPost.category] || categoryColors.default}`}>
                       {relatedPost.category}

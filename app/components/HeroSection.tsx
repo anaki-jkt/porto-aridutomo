@@ -16,7 +16,7 @@ export default function HeroSection() {
   }, [roles.length]);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center px-4 pt-20 overflow-hidden bg-gradient-to-br from-blue-50 via-white to-yellow-50">
+    <section id="home" className="relative min-h-screen flex items-center justify-center px-4 pt-20 overflow-hidden bg-linear-to-br from-blue-50 via-white to-yellow-50">
       <div className="max-w-7xl mx-auto w-full">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           <div className={`flex-1 text-center lg:text-left ${mounted ? "animate-fade-in-up" : "opacity-0"}`}>
@@ -38,7 +38,7 @@ export default function HeroSection() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
-              <a href="#projects" className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-1 flex items-center justify-center gap-2 cursor-pointer">
+              <a href="#projects" className="w-full sm:w-auto px-8 py-4 rounded-xl bg-linear-to-r from-blue-500 to-blue-600 text-white font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30 hover:-translate-y-1 flex items-center justify-center gap-2 cursor-pointer">
                 <span>{t.hero.viewWork}</span>
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
               </a>
@@ -68,7 +68,7 @@ export default function HeroSection() {
             <div className="relative">
               <div className="absolute inset-0 w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full border-2 border-blue-200 animate-pulse" />
               <div className="absolute inset-4 w-64 h-64 sm:w-72 sm:h-72 lg:w-80 lg:h-80 rounded-full border border-yellow-300" />
-              <div className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full bg-gradient-to-br from-blue-100 via-white to-yellow-100 flex items-center justify-center animate-float">
+              <div className="relative w-72 h-72 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full bg-linear-to-br from-blue-100 via-white to-yellow-100 flex items-center justify-center animate-float">
                 <div className="w-56 h-56 sm:w-64 sm:h-64 lg:w-72 lg:h-72 rounded-full gradient-border flex items-center justify-center overflow-hidden bg-white">
                   <div className="text-6xl sm:text-7xl lg:text-8xl font-bold gradient-text">A</div>
                 </div>

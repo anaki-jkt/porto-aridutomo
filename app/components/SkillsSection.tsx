@@ -47,7 +47,7 @@ export default function SkillsSection() {
   };
 
   return (
-    <section id="skills" ref={sectionRef} className="relative py-20 lg:py-32 px-4 bg-gradient-to-b from-white to-blue-50/50">
+    <section id="skills" ref={sectionRef} className="relative py-20 lg:py-32 px-4 bg-linear-to-b from-white to-blue-50/50">
       <div className="max-w-7xl mx-auto">
         <div className={`text-center mb-16 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}>
           <span className="inline-block px-4 py-2 rounded-full bg-cyan-50 text-sm text-cyan-600 mb-4 font-medium">{t.skills.title}</span>
@@ -65,7 +65,7 @@ export default function SkillsSection() {
           {skillCategories.map((category, catIndex) => (
             <div key={catIndex} className={`glass-card rounded-3xl p-6 lg:p-8 group hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`} style={{ animationDelay: isVisible ? `${(catIndex + 2) * 0.1}s` : "0s" }}>
               <div className="flex items-center gap-4 mb-6">
-                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${category.color} flex items-center justify-center text-white`}>{renderIcon(category.icon)}</div>
+                <div className={`w-12 h-12 rounded-xl bg-linear-to-br ${category.color} flex items-center justify-center text-white`}>{renderIcon(category.icon)}</div>
                 <h3 className="text-xl font-semibold text-slate-800">{getCategoryTitle(category.key)}</h3>
               </div>
               <div className="flex flex-wrap gap-3">

@@ -55,14 +55,14 @@ export default function ProjectsSection() {
 
         <div className={`flex flex-wrap justify-center gap-3 mb-12 ${isVisible ? "animate-fade-in-up delay-100" : "opacity-0"}`}>
           {filters.map((f) => (
-            <button key={f.key} onClick={() => setFilter(f.key)} className={`px-5 py-2 rounded-xl text-sm font-medium transition-all duration-300 cursor-pointer ${filter === f.key ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-500/20" : "bg-slate-100 text-slate-600 hover:text-blue-600 hover:bg-blue-50"}`}>{f.label}</button>
+            <button key={f.key} onClick={() => setFilter(f.key)} className={`px-5 py-2 rounded-xl text-sm font-medium transition-all duration-300 cursor-pointer ${filter === f.key ? "bg-linear-to-r from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-500/20" : "bg-slate-100 text-slate-600 hover:text-blue-600 hover:bg-blue-50"}`}>{f.label}</button>
           ))}
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {filteredProjects.map((project, index) => (
             <div key={index} className={`project-card glass-card rounded-3xl overflow-hidden group ${isVisible ? "animate-fade-in-up" : "opacity-0"}`} style={{ animationDelay: isVisible ? `${(index + 2) * 0.1}s` : "0s" }}>
-              <div className={`h-40 bg-gradient-to-br ${project.color} p-6 relative overflow-hidden`}>
+              <div className={`h-40 bg-linear-to-br ${project.color} p-6 relative overflow-hidden`}>
                 <div className="absolute top-0 right-0 w-32 h-32 bg-white/20 rounded-full -translate-y-1/2 translate-x-1/2" />
                 <div className="absolute bottom-0 left-0 w-24 h-24 bg-black/10 rounded-full translate-y-1/2 -translate-x-1/2" />
                 <div className="relative z-10">
