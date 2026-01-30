@@ -37,6 +37,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           script: |
             cd ~/projects/porto-aridutomo
+            git pull origin main
             docker compose down
             docker rmi aridutomo12/porto-aridutomo:latest || true
             docker pull aridutomo12/porto-aridutomo:latest
