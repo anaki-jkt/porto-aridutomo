@@ -20,10 +20,10 @@ export default function HeroSection() {
       <div className="max-w-7xl mx-auto w-full">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
           <div className={`flex-1 text-center lg:text-left ${mounted ? "animate-fade-in-up" : "opacity-0"}`}>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6">
+            {/* <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6">
               <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
               <span className="text-sm text-slate-600">{t.hero.available}</span>
-            </div>
+            </div> */}
 
             <h1 className="text-3xl sm:text-5xl lg:text-4xl xl:text-5xl font-bold leading-tight mb-6 text-slate-800">
               {t.hero.greeting} <span className="gradient-text">Ari </span>
