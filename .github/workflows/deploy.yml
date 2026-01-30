@@ -38,5 +38,6 @@ jobs:
           script: |
             cd ~/projects/porto-aridutomo
             docker compose down
-            docker rmi aridutomo12/porto-aridutomo:latest
+            docker rmi aridutomo12/porto-aridutomo:latest || true
+            docker pull aridutomo12/porto-aridutomo:latest
             docker compose up -d
