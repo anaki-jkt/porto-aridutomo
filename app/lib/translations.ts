@@ -84,7 +84,7 @@ export const translations = {
       subtitle: "Punya proyek di pikiran? Yuk diskusi bagaimana kita bisa bekerja sama",
       infoTitle: "Informasi Kontak",
       email: "Email",
-      linkedin: "Connect di LinkedIn",
+      linkedin: "LinkedIn",
       github: "Lihat repository saya",
       formTitle: "Kirim Pesan",
       name: "Nama Lengkap",

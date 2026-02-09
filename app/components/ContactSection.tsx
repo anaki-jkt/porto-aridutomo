@@ -5,8 +5,8 @@ import { useLanguage } from "../context/LanguageContext";
 
 const contactInfo = [
   { icon: "email", key: "email", value: "sosial.aridutomo@gmail.com", href: "mailto:sosial.aridutomo@gmail.com", color: "from-blue-500 to-blue-600" },
-  { icon: "linkedin", key: "linkedin", href: "https://linkedin.com", color: "from-cyan-500 to-blue-500" },
-  { icon: "github", key: "github", href: "https://github.com", color: "from-slate-600 to-slate-700" },
+  { icon: "linkedin", key: "linkedin", value: "Ari Dwi Utomo", href: "https://www.linkedin.com/in/ari-dwi-utomo-a3358b353", color: "from-cyan-500 to-blue-500" },
+  { icon: "github", key: "github", value: "Github", href: "https://github.com", color: "from-slate-600 to-slate-700" },
 ];
 
 export default function ContactSection() {
@@ -33,8 +33,8 @@ export default function ContactSection() {
 
   const getContactValue = (key: string, value?: string) => {
     if (key === "email") return value || "";
-    if (key === "linkedin") return t.contact.linkedin;
-    if (key === "github") return t.contact.github;
+    if (key === "linkedin") return value || "";
+    if (key === "github") return value || "";
     return "";
   };
 
