@@ -33,11 +33,18 @@ export const metadata: Metadata = {
     "Indonesia",
   ],
   authors: [{ name: "Ari Dwi Utomo" }],
+  alternates: {
+    canonical: "https://aridutomo.anaki.id",
+    types: {
+      "application/rss+xml": "https://aridutomo.anaki.id/rss.xml",
+    },
+  },
   openGraph: {
     title: "Ari Dwi Utomo | Full Stack & Mobile Developer",
     description:
       "Experienced Full Stack Developer specializing in ASP.NET, Golang, NextJS, Flutter, and modern web & mobile technologies.",
     type: "website",
+    url: "https://aridutomo.anaki.id",
   },
 };
 

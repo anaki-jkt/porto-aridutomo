@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Ari Dwi Utomo | Blog</title>
+    <link>https://aridutomo.anaki.id</link>
+    <description>Blog tentang web development, mobile development, dan teknologi modern. Tips, tutorial, dan pengalaman dari Ari Dwi Utomo.</description>
+    <language>id</language>
+    <lastBuildDate>Mon, 02 Feb 2026 02:52:52 GMT</lastBuildDate>
+    <atom:link href="https://aridutomo.anaki.id/rss.xml" rel="self" type="application/rss+xml"/>
+    <image>
+      <url>https://aridutomo.anaki.id/avatar.jpg</url>
+      <title>Ari Dwi Utomo | Blog</title>
+      <link>https://aridutomo.anaki.id</link>
+    </image>
+    <managingEditor>sosial.aridutomo@gmail.com (Ari Dwi Utomo)</managingEditor>
+    <webMaster>sosial.aridutomo@gmail.com (Ari Dwi Utomo)</webMaster>
+    <copyright>© 2026 Ari Dwi Utomo. All rights reserved.</copyright>
+    <ttl>60</ttl>
+    
+    <item>
+      <title><![CDATA[Membuat Project Next.js dan Deploy Gratis ke Vercel]]></title>
+      <link>https://aridutomo.anaki.id/blog/membuat-nextjs-deploy-vercel-gratis</link>
+      <guid isPermaLink="true">https://aridutomo.anaki.id/blog/membuat-nextjs-deploy-vercel-gratis</guid>
+      <description><![CDATA[Tutorial lengkap membuat website Next.js dari nol dan cara deploy gratis ke Vercel. Cocok untuk pemula!]]></description>
+      <pubDate>Fri, 30 Jan 2026 00:00:00 GMT</pubDate>
+      <category><![CDATA[Frontend]]></category>
+      <author>sosial.aridutomo@gmail.com (Ari Dwi Utomo)</author>
+      <category><![CDATA[Next.js]]></category>
+      <category><![CDATA[Vercel]]></category>
+      <category><![CDATA[Deploy]]></category>
+      <category><![CDATA[Tutorial]]></category>
+      <category><![CDATA[Free Hosting]]></category>
+    </item>
+  </channel>
+</rss>
