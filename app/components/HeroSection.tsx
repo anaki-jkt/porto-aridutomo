@@ -9,7 +9,10 @@ export default function HeroSection() {
   const roles = ["Full Stack Developer", "Backend Engineer", "Mobile Developer", "Frontend Developer"];
   const [currentRole, setCurrentRole] = useState(0);
 
-  useEffect(() => { setMounted(true); }, []);
+  useEffect(() => {
+    const timeout = setTimeout(() => setMounted(true), 0);
+    return () => clearTimeout(timeout);
+  }, []);
   useEffect(() => {
     const interval = setInterval(() => { setCurrentRole((prev) => (prev + 1) % roles.length); }, 3000);
     return () => clearInterval(interval);
