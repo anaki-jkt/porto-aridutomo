@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { getRecentPosts, getAllCategories, type BlogPost } from "../lib/blog-data";
+import type { BlogPost } from "../lib/blog-data";
 
 // Category color mapping
 const categoryColors: { [key: string]: string } = {
@@ -94,8 +94,19 @@ function BlogCard({ post }: { post: BlogPost }) {
 }
 
 export default function BlogSection() {
-  const recentPosts = getRecentPosts(3);
-  const categories = getAllCategories();
+  const [recentPosts, setRecentPosts] = useState<BlogPost[]>([]);
+  const [categories, setCategories] = useState<string[]>([]);
+
+  useEffect(() => {
+    fetch("/api/cms/posts")
+      .then((r) => r.json())
+      .then((data: BlogPost[]) => {
+        const sorted = [...data].sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
+        setRecentPosts(sorted.slice(0, 3));
+        setCategories([...new Set(sorted.map((p) => p.category))]);
+      })
+      .catch(() => {});
+  }, []);
 
   return (
     <section id="blog" className="py-20 md:py-28 relative">

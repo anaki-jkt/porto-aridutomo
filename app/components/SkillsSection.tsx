@@ -3,25 +3,21 @@
 import { useEffect, useRef, useState } from "react";
 import { useLanguage } from "../context/LanguageContext";
 
-const skillCategories = [
-  { key: "backend", icon: "server", color: "from-blue-500 to-blue-600", dotColor: "bg-blue-500", skills: ["ASP.NET Core", "Golang", "C#", "REST API"] },
-  { key: "frontend", icon: "monitor", color: "from-cyan-500 to-blue-500", dotColor: "bg-cyan-500", skills: ["Next.js", "Tailwind CSS", "Bootstrap", "JavaScript"] },
-  { key: "mobile", icon: "mobile", color: "from-sky-400 to-blue-500", dotColor: "bg-sky-500", skills: ["Flutter", "Dart", "Android/iOS", "Firebase"] },
-  { key: "database", icon: "database", color: "from-yellow-400 to-yellow-500", dotColor: "bg-yellow-500", skills: ["SQL Server", "MySQL"] },
-  { key: "tools", icon: "settings", color: "from-green-400 to-green-500", dotColor: "bg-green-500", skills: ["Git & GitHub", "Docker", "CI/CD"] },
-];
+interface Technology {
+  id: string;
+  name: string;
+  category: string;
+  color: string;
+  order: number;
+}
 
-const techStack = [
-  { name: "ASP.NET", color: "text-blue-600 border-blue-200 bg-blue-50" },
-  { name: "Golang", color: "text-cyan-600 border-cyan-200 bg-cyan-50" },
-  { name: "Flutter", color: "text-sky-500 border-sky-200 bg-sky-50" },
-  { name: "Next.js", color: "text-slate-700 border-slate-200 bg-slate-50" },
-  { name: "Bootstrap", color: "text-purple-600 border-purple-200 bg-purple-50" },
-  { name: "Tailwind", color: "text-sky-600 border-sky-200 bg-sky-50" },
-  { name: "SQL Server", color: "text-red-600 border-red-200 bg-red-50" },
-  { name: "MySQL", color: "text-orange-600 border-orange-200 bg-orange-50" },
-  { name: "JavaScript", color: "text-yellow-600 border-yellow-200 bg-yellow-50" },
-];
+const CATEGORY_META: Record<string, { icon: string; color: string; dotColor: string }> = {
+  backend:  { icon: "server",   color: "from-blue-500 to-blue-600",   dotColor: "bg-blue-500" },
+  frontend: { icon: "monitor",  color: "from-cyan-500 to-blue-500",   dotColor: "bg-cyan-500" },
+  mobile:   { icon: "mobile",   color: "from-sky-400 to-blue-500",    dotColor: "bg-sky-500" },
+  database: { icon: "database", color: "from-yellow-400 to-yellow-500", dotColor: "bg-yellow-500" },
+  tools:    { icon: "settings", color: "from-green-400 to-green-500", dotColor: "bg-green-500" },
+};
 
 const renderIcon = (type: string) => {
   if (type === "server") return <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" /></svg>;
@@ -34,6 +30,7 @@ const renderIcon = (type: string) => {
 export default function SkillsSection() {
   const { t } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
+  const [technologies, setTechnologies] = useState<Technology[]>([]);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -42,9 +39,22 @@ export default function SkillsSection() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    fetch("/api/cms/technologies")
+      .then((r) => r.json())
+      .then((data: Technology[]) => setTechnologies(data))
+      .catch(() => {});
+  }, []);
+
   const getCategoryTitle = (key: string) => {
     return t.skills.categories[key as keyof typeof t.skills.categories] || key;
   };
+
+  const categories = Object.keys(CATEGORY_META);
+  const grouped = categories.reduce((acc, cat) => {
+    acc[cat] = technologies.filter((t) => t.category === cat);
+    return acc;
+  }, {} as Record<string, Technology[]>);
 
   return (
     <section id="skills" ref={sectionRef} className="relative py-20 lg:py-32 px-4 bg-linear-to-b from-white to-blue-50/50">
@@ -56,32 +66,36 @@ export default function SkillsSection() {
         </div>
 
         <div className={`flex flex-wrap justify-center gap-3 mb-16 ${isVisible ? "animate-fade-in-up delay-100" : "opacity-0"}`}>
-          {techStack.map((tech, index) => (
-            <span key={index} className={`px-4 py-2 rounded-full border text-sm font-medium tech-badge cursor-pointer ${tech.color}`}>{tech.name}</span>
+          {technologies.map((tech) => (
+            <span key={tech.id} className={`px-4 py-2 rounded-full border text-sm font-medium tech-badge cursor-pointer ${tech.color}`}>{tech.name}</span>
           ))}
         </div>
 
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-          {skillCategories.map((category, catIndex) => (
-            <div key={catIndex} className={`glass-card rounded-3xl p-6 lg:p-8 group hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`} style={{ animationDelay: isVisible ? `${(catIndex + 2) * 0.1}s` : "0s" }}>
-              <div className="flex items-center gap-4 mb-6">
-                <div className={`w-12 h-12 rounded-xl bg-linear-to-br ${category.color} flex items-center justify-center text-white`}>{renderIcon(category.icon)}</div>
-                <h3 className="text-xl font-semibold text-slate-800">{getCategoryTitle(category.key)}</h3>
+          {categories.map((catKey, catIndex) => {
+            const meta = CATEGORY_META[catKey];
+            const skills = grouped[catKey] || [];
+            return (
+              <div key={catKey} className={`glass-card rounded-3xl p-6 lg:p-8 group hover:shadow-lg hover:shadow-blue-500/10 transition-all duration-300 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`} style={{ animationDelay: isVisible ? `${(catIndex + 2) * 0.1}s` : "0s" }}>
+                <div className="flex items-center gap-4 mb-6">
+                  <div className={`w-12 h-12 rounded-xl bg-linear-to-br ${meta.color} flex items-center justify-center text-white`}>{renderIcon(meta.icon)}</div>
+                  <h3 className="text-xl font-semibold text-slate-800">{getCategoryTitle(catKey)}</h3>
+                </div>
+                <div className="flex flex-wrap gap-3">
+                  {skills.map((skill, skillIndex) => (
+                    <div
+                      key={skill.id}
+                      className={`flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 border border-slate-100 text-sm font-medium text-slate-600 hover:bg-white hover:shadow-sm hover:border-slate-200 transition-all duration-300 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}
+                      style={{ animationDelay: isVisible ? `${skillIndex * 0.05 + 0.3}s` : "0s" }}
+                    >
+                      <span>{skill.name}</span>
+                      <span className={`w-2 h-2 rounded-full ${meta.dotColor}`}></span>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <div className="flex flex-wrap gap-3">
-                {category.skills.map((skill, skillIndex) => (
-                  <div 
-                    key={skillIndex} 
-                    className={`flex items-center gap-2 px-4 py-2 rounded-full bg-slate-50 border border-slate-100 text-sm font-medium text-slate-600 hover:bg-white hover:shadow-sm hover:border-slate-200 transition-all duration-300 ${isVisible ? "animate-fade-in-up" : "opacity-0"}`}
-                    style={{ animationDelay: isVisible ? `${skillIndex * 0.05 + 0.3}s` : "0s" }}
-                  >
-                    <span>{skill}</span>
-                    <span className={`w-2 h-2 rounded-full ${category.dotColor}`}></span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

@@ -1,7 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  env: {
+    CMS_API_URL: process.env.CMS_API_URL || "http://porto-cms-api:3001",
+  },
 };
 
 export default nextConfig;

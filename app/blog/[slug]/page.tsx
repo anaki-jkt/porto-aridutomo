@@ -8,7 +8,7 @@ import type { Metadata } from "next";
 
 // Generate static paths for all blog posts
 export async function generateStaticParams() {
-  const posts = getAllPosts();
+  const posts = await getAllPosts();
   return posts.map((post) => ({
     slug: post.slug,
   }));
@@ -21,7 +21,7 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = await getPostBySlug(slug);
 
   if (!post) {
     return {
@@ -129,13 +129,13 @@ export default async function BlogPostPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = await getPostBySlug(slug);
 
   if (!post) {
     notFound();
   }
 
-  const recentPosts = getRecentPosts(3).filter((p) => p.slug !== slug);
+  const recentPosts = (await getRecentPosts(3)).filter((p) => p.slug !== slug);
   const categoryColor = categoryColors[post.category] || categoryColors.default;
 
   return (

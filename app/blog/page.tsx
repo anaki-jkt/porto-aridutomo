@@ -190,9 +190,9 @@ function BlogCard({ post, featured = false }: { post: BlogPost; featured?: boole
   );
 }
 
-export default function BlogPage() {
-  const allPosts = getAllPosts();
-  const categories = getAllCategories();
+export default async function BlogPage() {
+  const allPosts = await getAllPosts();
+  const categories = await getAllCategories();
   const [featuredPost, ...otherPosts] = allPosts;
 
   return (
